@@ -1,6 +1,12 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: Apache-2.0
 
+module "network" {
+  source  = "app.terraform.io/dmsorg/network/google"
+  version = "3.4.0"
+  # insert required variables here
+}
+
 terraform {
   required_providers {
     google = {
