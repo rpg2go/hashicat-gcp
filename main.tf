@@ -121,11 +121,3 @@ resource "null_resource" "configure-cat-app" {
     }
   }
 }
-
-module "network" {
-  source  = "app.terraform.io/dmsorg/network/google"
-  version = "3.4.0"
-  # insert required variables here
-  project_id   = "p-xanxipkumxvq-0"
-  network_name = google_compute_network.hashicat.self_link
-}
