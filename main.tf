@@ -1,12 +1,5 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: Apache-2.0
-
-module "network" {
-  source  = "app.terraform.io/dmsorg/network/google"
-  version = "3.4.0"
-  # insert required variables here
-}
-
 terraform {
   required_providers {
     google = {
@@ -127,4 +120,12 @@ resource "null_resource" "configure-cat-app" {
       host        = google_compute_instance.hashicat.network_interface.0.access_config.0.nat_ip
     }
   }
+}
+
+module "network" {
+  source  = "app.terraform.io/dmsorg/network/google"
+  version = "3.4.0"
+  # insert required variables here
+  project_id   = "p-xanxipkumxvq-0"
+  network_name = google_compute_network.hashicat.self_link
 }
